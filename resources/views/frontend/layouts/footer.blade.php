@@ -9,7 +9,7 @@
                 
                 <div class="col-lg-5 col-xs-12 about-company">
                     <h2>Tococo</h2>
-                    <p class="pr-5 ">PT Tococo Indonesia Berkah excels in premium Indonesian grocery production, specializing in coconuts commodity. 
+                    <p class="pr-5 ">{!! Str::limit(strip_tags($general->about_description), 100) !!}
                     </p>
                     <p>
                         <a href="#">
@@ -30,29 +30,29 @@
                     <h4 class="mt-lg-0 mt-sm-3">Links</h4>
                     <ul class="m-0 p-0">
                         <li>
-                            <a href="#">Home</a>
+                            <a href="{{ route('home')}}">Home</a>
                         </li>
                         <li>
-                            <a href="#">About</a>
+                            <a href="{{ route('about')}}">About</a>
                         </li>
                         <li>
-                            <a href="#">Product</a>
+                            <a href="{{ route('product')}}">Product</a>
                         </li>
                         <li>
-                            <a href="#">Blog</a>
+                            <a href="{{ route('product')}}">Blog</a>
                         </li>
                         <li>
-                            <a href="#">Contact</a>
+                            <a href="{{ route('contact')}}">Contact</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-xs-12 location">
                     <h4 class="mt-lg-0 mt-sm-4">Location</h4>
-                    <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
+                    <p>{{ $general->contact_location}}</p>
                     <p class="mb-0">
-                        <i class="fa fa-phone mr-3"></i> (+62) 754-3010</p>
+                        <i class="fa fa-phone mr-3"></i> {{ $general->contact_phone}}</p>
                     <p>
-                        <i class="fas fa-envelope-open mr-3"></i> info@hsdf.com</p>
+                        <i class="fas fa-envelope-open mr-3"></i>{{ $general->contact_email}}</p>
                 </div>
             </div>
             <div class="row mt-5">

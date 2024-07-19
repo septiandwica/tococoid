@@ -10,7 +10,7 @@ class General extends Model
     protected $table = 'general_pages';
 
     protected $fillable = [
-        'slug', 'title', 'home_img', 'about_desc', 'about_viss', 'about_miss',
+        'slug', 'title', 'home_img', 'catalogue', 'about_desc', 'about_viss', 'about_miss',
         'contact_email', 'contact_phone', 'contact_ig', 'contact_tik', 'contact_linkedin', 'contact_loc',
         'meta_title', 'meta_description', 'meta_keywords'
     ];
@@ -30,4 +30,14 @@ class General extends Model
             return url('upload/general/default.jpg'); // default image if home_img is not set or doesn't exist
         }
     }
+   
+    public function getCatalouge()
+{
+    if (!empty($this->catalouge) && file_exists('upload/general/' . $this->catalouge)) {
+        return url('upload/general/' . $this->catalouge);
+    } else {
+        return url('upload/general/default.pdf'); // default PDF if catalogue is not set or doesn't exist
+    }
+}
+
 }

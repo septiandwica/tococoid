@@ -23,7 +23,13 @@
         <li class="nav-item">
             <a class="nav-link " href="{{ route('dashboard/product/list') }}">
                 <i class="bi bi-card-list"></i>
-                <span>Blog</span>
+                <span>Products</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="{{ route('dashboard/blog/list') }}">
+                <i class="bi bi-card-list"></i>
+                <span>Blogs</span>
             </a>
         </li>
     </ul>

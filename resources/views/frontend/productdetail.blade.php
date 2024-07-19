@@ -131,47 +131,19 @@
             </div>
             <div class="row">
                 <div class="productinfo d-flex flex-wrap align-items-center justify-content-center" data-aos="fade-down" data-aos-duration="1500">
-                    <div class="  d-flex  justify-content-center align-items-center m-3">
-                        <a href="">
+                    @foreach ($featured as $item)
+                    <div class="  d-flex  justify-content-center align-items-center m-3" data-aos="fade-up"
+                    data-aos-duration="2000">
+                        <a href="{{ route('product.detail', $item->product_slug) }}">
                             <figure class="productimg text-center">
-                                <img src="./src/img/banner.heic" alt="" class="img-fluid">
+                                <img src="{{ $item->getImage(2) }}" alt="{{ $item->product_name }}" class="img-fluid">
                             </figure>
                             <figcaption class="text-center productname">
-                                <h5 >Tococo Chips</h5>
+                                <h5 >{{ $item->product_name}}</h5>
                             </figcaption>
                         </a>
                     </div>
-                    <div class=" d-flex justify-content-center align-items-center m-3">
-                        <a href="">
-                            <figure class="productimg text-center">
-                                <img src="./src/img/banner.heic" alt="" class="img-fluid">
-                            </figure>
-                            <figcaption class="text-center productname">
-                                <h5 >Tococo Chips</h5>
-                            </figcaption>
-                        </a>
-                    </div>
-                    <div class="  d-flex  justify-content-center align-items-center m-3">
-                        <a href="">
-                            <figure class="productimg text-center">
-                                <img src="./src/img/banner.heic" alt="" class="img-fluid">
-                            </figure>
-                            <figcaption class="text-center productname">
-                                <h5 >Tococo Chips</h5>
-                            </figcaption>
-                        </a>
-                    </div>
-                    <div class=" d-flex justify-content-center align-items-center m-3">
-                        <a href="">
-                            <figure class="productimg text-center">
-                                <img src="./src/img/banner.heic" alt="" class="img-fluid">
-                            </figure>
-                            <figcaption class="text-center productname">
-                                <h5 >Tococo Chips</h5>
-                            </figcaption>
-                        </a>
-                    </div>
-                    
+                    @endforeach
                 </div>
             </div>
         </section>

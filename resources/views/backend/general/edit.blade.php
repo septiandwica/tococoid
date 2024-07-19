@@ -35,6 +35,17 @@
                             @enderror
                         </div>
                         <div class="col-12 flex-column">
+                            <label for="catalogue_pdf" class="form-label">Catalogue PDF *</label>
+                            @if (!empty($general->getCatalouge()))
+                                <br>
+                                <a href="{{ $general->getCatalouge() }}" target="_blank">View Current Catalogue</a>
+                            @endif
+                            <input type="file" name="catalogue_pdf" class="form-control @error('catalogue_pdf') is-invalid @enderror" id="catalogue_pdf">
+                            @error('catalogue_pdf')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-12 flex-column">
                             <label for="inputEmail4" class="form-label">Home Img Background</label>
                             <br>
                             <img src="{{ $general->getImage()}}" width="200px" class="my-3" alt="">

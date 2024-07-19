@@ -13,12 +13,14 @@ class GeneralController extends Controller
         return view("backend.general.edit", compact('general'));
     }
 
-    public function generalsettings_action(Request $request){
+    public function generalsettings_action(Request $request) {
         $request->validate([
             'title' => 'required',
             'meta_title' => 'required',
             'meta_description' => 'required|string|max:100',
             'meta_keywords' => 'required',
+            'home_img' => 'sometimes|mimes:jpg,png,webp|max:10000',
+            'catalogue_pdf' => 'sometimes|mimes:pdf|max:1000000000',
             'about_description' => 'required',
             'about_vission' => 'required',
             'about_mission' => 'required',
@@ -54,21 +56,34 @@ class GeneralController extends Controller
         $general->contact_tiktok = trim($request->contact_tiktok);
         $general->contact_location = trim($request->contact_location);
     
-        if (!empty($request->file('home_img'))) {
+        if ($request->hasFile('home_img')) {
             if (!empty($general->home_img)) {
                 unlink('upload/general/' . $general->home_img);
             }
             $ext = $request->file('home_img')->getClientOriginalExtension();
             $file = $request->file('home_img');
-            $filename = $general->slug . '.' . $ext;
+            $filename = 'home_img_' . time() . '.' . $ext;
             $file->move('upload/general', $filename);
     
             $general->home_img = $filename;
         }
-        
+    
+        if ($request->hasFile('catalogue_pdf')) {
+            if (!empty($general->catalouge)) {
+                unlink('upload/general/' . $general->catalouge);
+            }
+            $ext = $request->file('catalogue_pdf')->getClientOriginalExtension();
+            $file = $request->file('catalogue_pdf');
+            $filename = 'catalogue_' . time() . '.' . $ext;
+            $file->move('upload/general', $filename);
+    
+            $general->catalouge = $filename;
+        }
     
         $general->save();
-        return redirect("dashboard/general-settings/edit")->with("success", "General settings added successfully.");
+    
+        return redirect("dashboard/general-settings/edit")->with("success", "General settings updated successfully.");
     }
+    
 }
 

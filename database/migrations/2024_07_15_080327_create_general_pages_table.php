@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();
             $table->string('home_img')->nullable();
+            $table->string('catalouge')->nullable();
             $table->text('about_description')->nullable();
             $table->text('about_vission')->nullable();
             $table->text('about_mission')->nullable();

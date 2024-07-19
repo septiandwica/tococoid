@@ -49,8 +49,8 @@
                                 <td>{{ $value->product_name }}</td>
                                 <td>{{ date('d-m-Y H:i', strtotime($value->created_at)) }}</td>
                                 <td>
-                                    {{-- <a href="{{ route('dashboard.product.edit', ['id' => $value->id]) }}" class="btn btn-sm btn-primary">Edit</a> --}}
-                                    {{-- <a href="{{ route('dashboard.product.delete', ['id' => $value->id]) }}" class="btn btn-sm btn-danger">Delete</a> --}}
+                                    <a href="{{ route('dashboard/product/edit', ['id' => $value->id]) }}" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="{{ route('dashboard/product/delete', ['id' => $value->id]) }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                             @empty  

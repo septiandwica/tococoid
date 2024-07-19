@@ -7,7 +7,7 @@
             <h1 >Your Ultimate Coconut Product Haven</h1>
             <p class="mb-5">Experience the Joy of Our Premium Coconut Products: Each Taste
                 and Swig Tells a Unique Tale.</p>
-            <a href="" class="btn-outln">View Catalouge</a>
+            <a href="{{ $general->getCatalouge() }}" class="btn-outln">View Catalouge</a>
         </div>
     </section>
 </article>
@@ -72,56 +72,33 @@ data-aos-duration="2000">
             <h1>Tococo Blog</h1>
             <p class="mb-5">Insights, Stories, and Updates</p>
         </div>
+        @if ($getArticle->isNotEmpty())
         <div class="row blogsinfo">
+            @foreach ($getArticle as $item)
             <div class=" col-md-4 d-flex justify-content-center align-items-center mb-5"  data-aos="fade-up" data-aos-duration="1500" data-aos-once=“true”>
-                <a href="">
+                <a href="{{ route('blog.detail', $item->blog_slug) }}">
                     <figure class="text-center">
-                        <img src="{{ asset('frontend/src/img/banner.heic')}}" alt="" class="img-fluid">
+                        <img src="{{$item->getImage()}}" alt="" class="img-fluid">
                     </figure>
                     <figcaption class="text-start ">
-                        <h5 class="blogtitle">Tococo Chips</h5>
-                        <p class="blogdesc15">Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                            maiores corrupti officia, sunt expedita ex?</p>
+                        <h5 class="blogtitle">{{ $item->blog_title}}</h5>
+                        <p class="blogdesc15">{!! Str::limit(strip_tags($item->blog_content), 100) !!}</p>
                         <button>Read More
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                         </button>
                     </figcaption>
                 </a>
             </div>
-            <div class=" col-md-4 d-flex justify-content-center align-items-center mb-5"  data-aos="fade-up" data-aos-duration="1500" >
-                <a href="">
-                    <figure class="text-center">
-                        <img src="{{ asset('frontend/src/img/banner.heic')}}" alt="" class="img-fluid">
-                    </figure>
-                    <figcaption class="text-start ">
-                        <h5 class="blogtitle">Tococo Chips</h5>
-                        <p class="blogdesc15">Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                            maiores corrupti officia, sunt expedita ex?</p>
-                        <button>Read More
-                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                        </button>
-                    </figcaption>
-                </a>
-            </div>
-            <div class=" col-md-4 d-flex justify-content-center align-items-center mb-5"  data-aos="fade-up" data-aos-duration="1500">
-                <a href="">
-                    <figure class="text-center">
-                        <img src="{{ asset('frontend/src/img/banner.heic')}}" alt="" class="img-fluid">
-                    </figure>
-                    <figcaption class="text-start ">
-                        <h5 class="blogtitle">Tococo Chips</h5>
-                        <p class="blogdesc15">Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                            maiores corrupti officia, sunt expedita ex?</p>
-                        <button>Read More
-                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                        </button>
-                    </figcaption>
-                </a>
-            </div>
+            @endforeach
         </div>
         <div class="buttons mt-5"  data-aos="fade-down" data-aos-duration="1500">
             <a href="" class="btn-outln mt-5">See More</a>
         </div>
+        @else
+        <div class="col-12">
+            <h4 class="text-center"> No articles found Here. </h4>
+        </div>
+         @endif
     </section>
 </article>
 @endsection
