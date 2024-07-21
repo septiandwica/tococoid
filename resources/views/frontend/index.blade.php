@@ -36,7 +36,7 @@
         </div>
         @endif
         <div class="buttons mt-5">
-            <a href="" class="btn-outln mt-5">View All</a>
+            <a href="{{ route('product')}}" class="btn-outln mt-5">View All</a>
         </div>
     </section>
 </article>
@@ -58,7 +58,7 @@ data-aos-duration="2000">
                    
                 </p>
 
-                <a href="" class="btn-outln ">More Detail</a>
+                <a href="{{ route('about')}}" class="btn-outln ">More Detail</a>
             </div>
         </div>
     </section>
@@ -92,7 +92,7 @@ data-aos-duration="2000">
             @endforeach
         </div>
         <div class="buttons mt-5"  data-aos="fade-down" data-aos-duration="1500">
-            <a href="" class="btn-outln mt-5">See More</a>
+            <a href="{{ route('blog')}}" class="btn-outln mt-5">See More</a>
         </div>
         @else
         <div class="col-12">

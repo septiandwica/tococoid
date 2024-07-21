@@ -16,8 +16,9 @@ class FrontEndController extends Controller
         return view('frontend.index', compact('general', 'getProduct', 'getArticle'));
     }
     public function about() {
-        $general = General::getPage(); // Mengambil data General
-        return view('frontend.about', compact('general'));
+        $general = General::getPage();
+        $productinfo = Product::getRecordProduct(); // Mengambil data General
+        return view('frontend.about', compact('general', 'productinfo'));
     }
     public function product() {
         $general = General::getPage(); // Mengambil data General
@@ -57,7 +58,7 @@ class FrontEndController extends Controller
 
             $data['featuredBlog'] = $featuredBlogs;
             $data['blogdetail'] = $blogdetail;
-        $data['general'] = General::getPage(); // Mengambil data General
+            $data['general'] = General::getPage(); // Mengambil data General
 
     
             return view('frontend.blogdetail', $data);

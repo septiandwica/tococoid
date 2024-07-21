@@ -15,14 +15,11 @@
                         <a href="#">
                             <i class="fab fa-facebook-square mr-1"></i>
                         </a>
-                        <a href="#">
+                        <a href="{{'https://linkedin.com/in/'. $general->contact_linkedin }}" target="_blank">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="#">
+                        <a href="{{'https://tiktok.com/'. $general->contact_tiktok }}" target="_blank">
                             <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fab fa-amazon"></i>
                         </a>
                     </p>
                 </div>
