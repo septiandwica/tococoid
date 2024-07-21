@@ -92,6 +92,10 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+                        <hr class="hr">
+                        <h5 class="card-title">Product Image must be 3</h5>
+                        <p><i>Aspek Rasio gambar harus 3:2 (6000x4000,3000x2000, dst)</i></p>
+                        
                         <div class="col-12 flex-column">
                             <label for="inputProductImg1" class="form-label">Product Image 1</label>
                             <input type="file" name="product_img_1" class="form-control @error('product_img_1') is-invalid @enderror" id="inputProductImg1">

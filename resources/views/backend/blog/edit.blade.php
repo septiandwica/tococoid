@@ -39,10 +39,13 @@
                         </div>
 
                         <div class="col-12 flex-column">
-                            <label for="inputImg1" class="form-label">Blog Image</label>
+                            <label for="inputImg1" class="form-label">Blog Image*</label>
+                            <p>
+                                <i>Aspek Rasio gambar harus 16:9 (1920x1080, 1280x720, dst)</i>
+                                </p>
                             <br>
                             @if ($getArticle->blog_img)
-                                <img class="my-3" src="{{ asset('upload/blogs/' . $getArticle->blog_img) }}" alt="Blog Image" width="100">
+                                <img class="my-2" src="{{ asset('upload/blogs/' . $getArticle->blog_img) }}" alt="Blog Image" width="400">
                             @endif
                             <input type="file" name="blog_img" class="form-control @error('blog_img') is-invalid @enderror" id="inputImg1" readonly>
                             @error('blog_img')

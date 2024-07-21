@@ -53,4 +53,31 @@ class User extends Authenticatable
     {
     // return $this->hasMany(Blog::class, 'user_id'); 
     }
+    static public function getSingle($id)
+    {
+        return self::find($id);
+    }
+    static public function getTeams()
+    {
+        return self::select('users.*')
+            ->where('role_id', '=', '2') 
+            ->where('is_deleted', '=', '0')
+            ->get();
+    }
+
+    static public function getRecordUser(){
+        return self::select('users.*')
+        ->where('role_id','=','2')
+        ->where('is_deleted','=','0')
+        ->orderBy('id','desc')
+        ->paginate(10);
+    }
+    
+    public function getProfile(){
+        if(!empty($this->image_file) && file_exists('upload/users/'.$this->image_file)){
+            return url('upload/users/'.$this->image_file);
+        }else{
+            return url('upload/users/userplaceholder.jpg');;
+        }
+    }
 }

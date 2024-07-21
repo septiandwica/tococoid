@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get("/", [FrontEndController::class,"index"])->name('home');
@@ -30,6 +31,11 @@ Route::controller(AuthController::class)->group(    function () {
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get("dashboard", [DashboardController::class,"dashboard"])->name('dashboard');
+    
+    Route::get("dashboard/account-settings", [UserController::class,"accountsettings"])->name('account-settings');
+    Route::post("dashboard/account-settings", [UserController::class, "accountupdate"])->name('account-settings');
+    Route::get("dashboard/change-password", [UserController::class,"changepassword"])->name('change-password');
+    Route::post("dashboard/change-password", [UserController::class, "updatepassword"])->name('change-password');
 
     Route::get('dashboard/general-settings/edit', [GeneralController::class, 'generalsettings'])->name('dashboard/general-settings/edit');
     Route::post('dashboard/general-settings/edit', [GeneralController::class, 'generalsettings_action'])->name('dashboard/frontendpage/edit');
@@ -51,7 +57,11 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'developer']], function () {
-
-
+    Route::get('dashboard/users/list', [UserController::class, 'user'])->name('dashboard/users/list');
+    Route::get('dashboard/users/add', [UserController::class, 'add_user'])->name('dashboard/users/add');
+    Route::post('dashboard/users/add', [UserController::class, 'add_user_action'])->name('dashboard/users/add');
+    Route::get('dashboard/users/edit/{id}', [UserController::class, 'edit_user'])->name('dashboard/users/edit');
+    Route::post('dashboard/users/edit/{id}', [UserController::class, 'edit_user_action'])->name('dashboard/users/edit');
+    Route::get('dashboard/users/delete/{id}', [UserController::class, 'delete_user'])->name('dashboard/users/delete');
 
 });

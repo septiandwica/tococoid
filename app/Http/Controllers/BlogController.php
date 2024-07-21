@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+
 
 
 class BlogController extends Controller
@@ -20,13 +22,35 @@ class BlogController extends Controller
     }
     
     public function add_blog_action(Request $request) {
-        // Validate the incoming request
-        $request->validate([ 
+        $validator = Validator::make($request->all(), [
             'blog_title' => 'required',
             'blog_content' => 'required',
-            'blog_img' => 'required',
+            'blog_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'blog_readtime' => 'required',
         ]);
+    
+        // Validasi rasio aspek gambar
+        $validator->after(function ($validator) use ($request) {
+            $targetWidth = 1920; // Lebar yang diinginkan untuk rasio 16:9
+            $targetHeight = 1080; // Tinggi yang diinginkan untuk rasio 16:9
+            $aspectRatio = $targetWidth / $targetHeight;
+    
+            if ($request->hasFile('blog_img')) {
+                $image = getimagesize($request->file('blog_img'));
+                $width = $image[0];
+                $height = $image[1];
+    
+                if (abs($width / $height - $aspectRatio) > 0.01) { // Toleransi sedikit
+                    $validator->errors()->add('blog_img', 'Gambar harus memiliki rasio aspek 16:9 (1920x1080 piksel).');
+                }
+            }
+        });
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
     
         // Define a maximum length for the meta description
         $maxMetaLength = 100;
@@ -75,13 +99,35 @@ class BlogController extends Controller
     }
 
     public function edit_blog_action(Request $request, $id) {
-        // Validate the incoming request
-        $request->validate([ 
+        $validator = Validator::make($request->all(), [
             'blog_title' => 'required',
             'blog_content' => 'required',
             'blog_readtime' => 'required',
-            'blog_img' => 'nullable|image',
+            'blog_img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
+    
+        // Validasi rasio aspek gambar
+        $validator->after(function ($validator) use ($request) {
+            $targetWidth = 1920; // Lebar yang diinginkan untuk rasio 16:9
+            $targetHeight = 1080; // Tinggi yang diinginkan untuk rasio 16:9
+            $aspectRatio = $targetWidth / $targetHeight;
+    
+            if ($request->hasFile('blog_img')) {
+                $image = getimagesize($request->file('blog_img'));
+                $width = $image[0];
+                $height = $image[1];
+    
+                if (abs($width / $height - $aspectRatio) > 0.01) { // Toleransi sedikit
+                    $validator->errors()->add('blog_img', 'Gambar harus memiliki rasio aspek 16:9 (1920x1080 piksel).');
+                }
+            }
+        });
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
     
         // Define a maximum length for the meta description
         $maxMetaLength = 100;
@@ -110,7 +156,7 @@ class BlogController extends Controller
         }
     
         // Handle the image file upload if a new image is provided
-        if (!empty($request->file('blog_img'))) {
+        if ($request->hasFile('blog_img')) {
             // Delete the old image if it exists
             if ($blog->blog_img) {
                 unlink(public_path('upload/blogs/' . $blog->blog_img));
@@ -129,6 +175,7 @@ class BlogController extends Controller
         // Redirect to the blog list page with a success message
         return redirect("dashboard/blog/list")->with("success", "Blog updated successfully.");
     }
+    
     
 
     public function delete_blog($id){

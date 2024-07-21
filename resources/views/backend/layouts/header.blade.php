@@ -185,7 +185,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="}">
+              <a class="dropdown-item d-flex align-items-center" href="{{route('account-settings' )}}">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>

@@ -77,12 +77,16 @@
                         @endfor
                     
                         <!-- Image Uploads -->
+                        <hr class="hr">
+                        <h5 class="card-title">Product Image</h5>
+                        <p><i>Aspek Rasio gambar harus 3:2 (6000x4000,3000x2000, dst)</i></p>
+                        
                         @for ($i = 1; $i <= 3; $i++)
                             <div class="col-12 flex-column">
                                 <label for="inputImg{{ $i }}" class="form-label">Product Image {{ $i }} *</label>
                                 <br>
                                 @if ($product->{'product_img_' . $i})
-                                    <img class="my-3" src="{{ asset('upload/products/' . $product->{'product_img_' . $i}) }}" alt="Product Image {{ $i }}" width="100">
+                                    <img class="my-3" src="{{ asset('upload/products/' . $product->{'product_img_' . $i}) }}" alt="Product Image {{ $i }}" width="400">
                                 @endif
                                 <input type="file" name="product_img_{{ $i }}" class="form-control @error('product_img_' . $i) is-invalid @enderror" id="inputImg{{ $i }}">
                                 @error('product_img_' . $i)

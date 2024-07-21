@@ -38,7 +38,10 @@
                             @enderror
                         </div>
                         <div class="col-12 flex-column">
-                            <label for="inputEmail4" class="form-label">Image Banner</label>
+                            <label for="inputEmail4" class="form-label">Blog Image*</label>
+                            <p>
+                            <i>Aspek Rasio gambar harus 16:9 (1920x1080, 1280x720, dst)</i>
+                            </p>
                             <input type="file" name="blog_img" class="form-control @error('blog_img') is-invalid @enderror" id="inputEmail4">
                             @error('blog_img')
                             <div class="invalid-feedback">{{ $message }}</div>

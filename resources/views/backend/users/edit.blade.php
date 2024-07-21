@@ -1,4 +1,4 @@
-@extends('admin.layouts.app') @section('contents')
+@extends('backend.layouts.app') @section('contents')
 
 <div class="pagetitle">
     <h1>Edit User Data</h1>

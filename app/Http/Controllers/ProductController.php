@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Str;
 
@@ -18,8 +19,8 @@ class ProductController extends Controller
         return view("backend.product.add");
     }
 
-    public function add_product_action(Request $request){
-        $request->validate([
+    public function add_product_action(Request $request) {
+        $validator = Validator::make($request->all(), [
             'product_name' => 'required|string|max:255',
             'product_varian' => 'required|string|max:255',
             'product_desc' => 'required|string',
@@ -34,7 +35,33 @@ class ProductController extends Controller
             'product_img_2' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'product_img_3' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
-
+    
+        // Validasi ukuran gambar
+        $validator->after(function ($validator) use ($request) {
+            $targetWidth = 3000; // Ganti dengan lebar yang diinginkan
+            $targetHeight = 2000; // Ganti dengan tinggi yang diinginkan
+            $aspectRatio = $targetWidth / $targetHeight;
+    
+            for ($i = 1; $i <= 3; $i++) {
+                if ($request->hasFile('product_img_' . $i)) {
+                    $image = getimagesize($request->file('product_img_' . $i));
+                    $width = $image[0];
+                    $height = $image[1];
+    
+                    if (abs($width / $height - $aspectRatio) > 0.01) { // Allow some tolerance
+                        $validator->errors()->add('product_img_' . $i, 'Gambar harus memiliki rasio aspek 3:2 (3000x2000 piksel).');
+                    }
+                }
+            }
+        });
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+    
+    
         // Create a new product
         $product = new Product();
         $product->product_name = $request->product_name;
@@ -48,7 +75,7 @@ class ProductController extends Controller
         $product->faq_question_3 = $request->faq_question_3;
         $product->faq_answer_3 = $request->faq_answer_3;
         $product->is_deleted = 0;
-
+    
         $slug = Str::slug($request->product_name);
         $checkSlug = Product::where('product_slug', '=', $slug)->first();
         if (!empty($checkSlug)) {
@@ -57,7 +84,7 @@ class ProductController extends Controller
             $dbSlug = $slug;
         }
         $product->product_slug = $dbSlug;
-
+    
         // Simpan gambar produk
         for ($i = 1; $i <= 3; $i++) {
             if (!empty($request->file('product_img_' . $i))) {
@@ -65,19 +92,19 @@ class ProductController extends Controller
                 $file = $request->file('product_img_' . $i);
                 $filename = $dbSlug . '_img_' . $i . '.' . $ext;
                 $file->move('upload/products', $filename);
-
+    
                 // Simpan nama file gambar di kolom yang sesuai
                 $product->{'product_img_' . $i} = $filename;
             }
         }
-
-
+    
         // Save the product to the database
         $product->save();
-
+    
         // Redirect back with a success message
         return redirect()->route('dashboard/product/list')->with('success', 'Product added successfully.');
     }
+    
 
     public function edit_product($id) {
         // Fetch the product details
@@ -87,7 +114,7 @@ class ProductController extends Controller
         return view('backend.product.edit', compact('product'));
     }
     public function edit_product_action(Request $request, $id){
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'product_name' => 'required|string|max:255',
             'product_varian' => 'required|string|max:255',
             'product_desc' => 'required|string',
@@ -102,6 +129,31 @@ class ProductController extends Controller
             'product_img_2' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg',
             'product_img_3' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
+    
+        // Validasi rasio aspek gambar
+        $validator->after(function ($validator) use ($request) {
+            $targetWidth = 3000; // Ganti dengan lebar yang diinginkan
+            $targetHeight = 2000; // Ganti dengan tinggi yang diinginkan
+            $aspectRatio = $targetWidth / $targetHeight;
+    
+            for ($i = 1; $i <= 3; $i++) {
+                if ($request->hasFile('product_img_' . $i)) {
+                    $image = getimagesize($request->file('product_img_' . $i));
+                    $width = $image[0];
+                    $height = $image[1];
+    
+                    if (abs($width / $height - $aspectRatio) > 0.01) { // Allow some tolerance
+                        $validator->errors()->add('product_img_' . $i, 'Gambar harus memiliki rasio aspek 3:2 (3000x2000 piksel).');
+                    }
+                }
+            }
+        });
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
     
         // Fetch the existing product
         $product = Product::findOrFail($id);

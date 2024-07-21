@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('backend.layouts.app')
 @section('contents')
 
 <div class="pagetitle">
@@ -13,7 +13,7 @@
 </div>
 
 <section class="section">   
-    @include('admin.layouts.sessionmessage')
+    @include('backend.layouts.sessionmessage')
 
     <div class="row ">
         <div class="col-lg-12 ">
@@ -48,7 +48,7 @@
                                 <td>{{ date('d-m-Y H:i', strtotime($value->created_at)) }}</td>
                                 <td>
                                     <a href="{{ route('dashboard/users/edit', ['id' => $value->id]) }}" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="{{ route('dashboard/users/delete', ['id' => $value->id]) }}" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ route('dashboard/users/delete', ['id' => $value->id]) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
                                 </td>
                             </tr>
                             @empty

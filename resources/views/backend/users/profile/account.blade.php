@@ -1,4 +1,4 @@
-@extends('admin.layouts.app') 
+@extends('backend.layouts.app') 
 @section('contents')
 
 <div class="pagetitle">
@@ -14,7 +14,7 @@
         </ol>
     </nav>
 </div>
-@include('admin.layouts.sessionmessage')
+@include('backend.layouts.sessionmessage')
   <section class="section profile">
     <div class="row">
       <div class="col-xl-4">
