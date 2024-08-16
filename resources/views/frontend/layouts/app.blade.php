@@ -15,6 +15,7 @@
             rel="stylesheet">
 
         <!-- style assets -->
+        <link rel="shortcut icon" href="{{ asset('frontend/src/img/favicon.ico')}}" type="image/x-icon">
         <link rel="stylesheet" href="{{ asset('frontend/assets/bootstrap-5.3.2-dist/css/bootstrap.css')}}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/fontawesome-free-6.5.1-web/css/all.css')}}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/aos/aos.css')}}">

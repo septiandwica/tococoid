@@ -3,7 +3,10 @@
         <div class="container">
             <div class="navbarlogo d-flex justify-content-center align-items-center">
                 <img src="{{ asset('frontend/src/img/logo.png')}}" alt="" width="40px">
-                <a class="navbar-brand me-auto" href="#">Tococo</a>
+                <a class="navbar-brand me-auto" href="{{ route('home')}}">
+                <img src="{{ asset('frontend/src/img/logo-txt.png')}}" alt="" width="90px">
+
+                </a>
             </div>
 
             <div
@@ -14,7 +17,10 @@
                 <div class="offcanvas-header">
                     <div class="navbarlogo d-flex justify-content-center align-items-center">
                         <img src="{{ asset('frontend/src/img/logo.png')}}" alt="" width="40px">
-                        <a class="navbar-brand me-auto" href="#">Tococo</a>
+                        <a class="navbar-brand me-auto" href="{{ route('home')}}">
+                            <img src="{{ asset('frontend/src/img/logo-txt.png')}}" alt="" width="90px">
+            
+                            </a>
                     </div>
                     <button
                         type="button"

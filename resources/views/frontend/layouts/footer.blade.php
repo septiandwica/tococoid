@@ -3,12 +3,12 @@
     <div class="mt-5 pt-5 pb-5 footer">
         <div class="container">
             <div class="footerlogo">
-                <img src="{{ asset('frontend/src/img/logo.png')}}" width="80px" alt="">
+                <img src="{{ asset('frontend/src/img/white.jpeg')}}" width="120px" alt="">
             </div>
             <div class="row">
                 
                 <div class="col-lg-5 col-xs-12 about-company">
-                    <h2>Tococo</h2>
+
                     <p class="pr-5 ">{!! Str::limit(strip_tags($general->about_description), 100) !!}
                     </p>
                     <p>
@@ -20,6 +20,9 @@
                         </a>
                         <a href="{{'https://tiktok.com/'. $general->contact_tiktok }}" target="_blank">
                             <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="{{'https://instagram.com/'. $general->contact_ig }}" target="_blank">
+                            <i class="fab fa-instagram"></i>
                         </a>
                     </p>
                 </div>
