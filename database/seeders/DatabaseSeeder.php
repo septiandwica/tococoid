@@ -47,12 +47,16 @@ class DatabaseSeeder extends Seeder
             'meta_description' => 'Description of the Home Page.',
             'meta_keywords' => 'home, page, keywords',
             'home_img' => 'home-page.jpg',
-            'about_description' => 'This is a description about us.',
-            'about_vission' => 'Our vision is to...',
-            'about_mission' => 'Our mission is to...',
-            'contact_email' => 'contact@example.com',
+            'about_description' => 'PT Tococo Indonesia Berkah excels in premium Indonesian grocery production, specializing in coconuts commodity. Committed to excellence, we prioritize quality maintenance from cultivation to processing, collaborating closely with local farmers for sustainable practices. Our dedication extends to stringent quality control and community engagement, reflecting our commitment to excellence, sustainability, and community welfare.',
+            'about_vission' => 'To acquire Indonesian agricultural commodities to be known around the world',
+            'about_mission' => '<ul>
+            <li class="p1">To produce truly globally quality agricultural products</li>
+            <li class="p1">Meet the needs of agricultural products at the request of the buyer</li>
+            <li class="p1">Empowering local farmers</li>
+            </ul>',
+            'contact_email' => 'tococoindonesia',
             'contact_phone' => '+1234567890',
-            'contact_ig' => 'instagram_handle',
+            'contact_ig' => 'tococoindonesia.id',
             'contact_linkedin' => 'linkedin_profile',
             'contact_tiktok' => 'tiktok_handle',
             'contact_location' => '1234 Main St, Anytown, USA',
