@@ -12,7 +12,6 @@ class="herobread container-fluid d-flex align-items-center justify-content-cente
 <article class="product pb-5">
 <section class="container py-5 text-center">
     <div class="title text-center" data-aos="fade-down" data-aos-duration="1500">
-        <img src="./src/img/logo.png" width="80px" alt="">
         <h1>Natural Coconut Delights</h1>
         <p class="mb-5">Embrace Nature's Goodness for Strength and Vitality</p>
     </div>
