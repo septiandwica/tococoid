@@ -31,19 +31,19 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2 active" aria-current="page" href="{{ route('home')}}">Home</a>
+                            <a class="nav-link mx-lg-2 {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="{{ route('home')}}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2 " href="{{ route('about')}}">About</a>
+                            <a class="nav-link mx-lg-2 {{ request()->is('about') ? 'active' : '' }}" href="{{ route('about')}}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2 " href="{{ route('product')}}">Product</a>
+                            <a class="nav-link mx-lg-2 {{ request()->is('product') ? 'active' : '' }}" href="{{ route('product')}}">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2 " href="{{ route('blog')}}">Blog</a>
+                            <a class="nav-link mx-lg-2 {{ request()->is('blog') ? 'active' : '' }}" href="{{ route('blog')}}">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2 " href="{{ route('contact')}}">Contact</a>
+                            <a class="nav-link mx-lg-2 {{ request()->is('contact') ? 'active' : '' }}" href="{{ route('contact')}}">Contact</a>
                         </li>
                     </ul>
                 </div>
