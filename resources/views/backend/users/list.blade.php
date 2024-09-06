@@ -1,5 +1,7 @@
-@extends('backend.layouts.app')
+@extends('backend.layouts.app') 
+
 @section('contents')
+
 
 <div class="pagetitle">
     <h1>Users List</h1>
@@ -53,7 +55,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="100%" class="text-center">User Account Not Found.</td>
+                                <td colspan="100%" class="text-center"j>User Account Not Found.</td>
                             </tr>
                             @endforelse
                         </tbody>

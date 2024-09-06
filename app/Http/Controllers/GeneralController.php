@@ -20,7 +20,7 @@ class GeneralController extends Controller
             'meta_description' => 'required|string|max:100',
             'meta_keywords' => 'required',
             'home_img' => 'sometimes|mimes:jpg,png,webp|max:10000',
-            'catalogue_pdf' => 'sometimes|mimes:pdf|max:1000000000',
+            'catalogue_pdf' => 'sometimes|mimes:pdf|max:10000000000000',
             'about_description' => 'required',
             'about_vission' => 'required',
             'about_mission' => 'required',

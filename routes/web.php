@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post("dashboard/change-password", [UserController::class, "updatepassword"])->name('change-password');
 
     Route::get('dashboard/general-settings/edit', [GeneralController::class, 'generalsettings'])->name('dashboard/general-settings/edit');
-    Route::post('dashboard/general-settings/edit', [GeneralController::class, 'generalsettings_action'])->name('dashboard/frontendpage/edit');
+    Route::post('dashboard/general-settings/edit', [GeneralController::class, 'generalsettings_action'])->name('dashboard/general-settings/edit');
 
     Route::get('dashboard/product/list', [ProductController::class, 'product'])->name('dashboard/product/list');
     Route::get('dashboard/product/add', [ProductController::class, 'add_product'])->name('dashboard/product/add');

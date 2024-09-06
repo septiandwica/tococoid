@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             <li class="p1">Meet the needs of agricultural products at the request of the buyer</li>
             <li class="p1">Empowering local farmers</li>
             </ul>',
-            'contact_email' => 'tococoindonesia',
+            'contact_email' => 'business@tococoindonesia.com',
             'contact_phone' => '+1234567890',
             'contact_ig' => 'tococoindonesia.id',
             'contact_linkedin' => 'linkedin_profile',
