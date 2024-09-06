@@ -5,7 +5,7 @@
         class="herobread container-fluid d-flex align-items-center justify-content-center">
         <section class=" container">
             <div class=" text-center " data-aos="fade-up">
-                <h1>Tococo Chips</h1>
+                <h1>Our Product</h1>
                 <p class="mb-5">Savory Delights of Coconut</p>
             </div>
         </section>
@@ -132,6 +132,7 @@
             <div class="row">
                 <div class="productinfo d-flex flex-wrap align-items-center justify-content-center" data-aos="fade-down" data-aos-duration="1500">
                     @foreach ($featured as $item)
+                    @if ($item->id !== $productdetail->id)  {{-- Tambahkan kondisi ini --}}
                     <div class="  d-flex  justify-content-center align-items-center m-3" data-aos="fade-up"
                     data-aos-duration="2000">
                         <a href="{{ route('product.detail', $item->product_slug) }}">
@@ -143,6 +144,7 @@
                             </figcaption>
                         </a>
                     </div>
+                    @endif  {{-- Akhiri kondisi ini --}}
                     @endforeach
                 </div>
             </div>
