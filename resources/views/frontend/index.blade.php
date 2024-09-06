@@ -25,7 +25,7 @@
                     data-aos-duration="2000">
                     <a href="{{ route('product.detail', $item->product_slug) }}">
                         <figure class="productimg text-center">
-                            <img src="{{ $item->getImage(2) }}" alt="{{ $item->product_name }}" class="img-fluid">
+                            <img src="{{ $item->getImage(1) }}" alt="{{ $item->product_name }}" class="img-fluid">
                         </figure>
                         <figcaption class="text-center productname">
                             <h5 >{{ $item->product_name}}</h5>
