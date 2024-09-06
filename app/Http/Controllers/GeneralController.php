@@ -21,7 +21,7 @@ class GeneralController extends Controller
             'meta_keywords' => 'required',
             'home_img' => 'sometimes|mimes:jpg,png,webp|max:10000',
             'catalogue_pdf' => 'mimes:pdf',
-            'about_description' => 'requi red',
+            'about_description' => 'required',
             'about_vission' => 'required',
             'about_mission' => 'required',
             'contact_email' => 'required|email',
