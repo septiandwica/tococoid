@@ -49,10 +49,11 @@
                 </div>
             </div>
             <div class="utils">
-                <!-- <a class="mx-3" href="">
-                    <i class="fas fa-search    "></i>
-                </a> -->
-                <a href="" class="languageToggler">ID | EN</a>
+                @if(session('locale') == 'id')
+                    <a href="{{ route('setLanguage', 'en') }}" class="languageToggler" onclick="translatePage('en'); return false;">EN</a>
+                @else
+                    <a href="{{ route('setLanguage', 'id') }}" class="languageToggler" onclick="translatePage('id'); return false;">ID</a>
+                @endif
                 <button
                 class="navbar-toggler"
                 type="button"
@@ -67,3 +68,10 @@
         </div>
     </nav>
 </header>
+<script>
+    function translatePage(lang) {
+        let url = window.location.href;
+        let translateUrl = 'https://translate.google.com/translate?hl=' + lang + '&sl=' + (lang === 'en' ? 'id' : 'en') + '&u=' + encodeURIComponent(url);
+        window.location.href = translateUrl;
+    }
+</script>
