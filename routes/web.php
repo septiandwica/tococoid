@@ -65,8 +65,3 @@ Route::group(['middleware' => ['auth', 'developer']], function () {
     Route::get('dashboard/users/delete/{id}', [UserController::class, 'delete_user'])->name('dashboard/users/delete');
 
 });
-   // web.php
-   Route::get('/set-language/{lang}', function ($lang) {
-    session(['locale' => $lang]);
-    return redirect()->back();
-})->name('setLanguage');
