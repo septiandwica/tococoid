@@ -81,14 +81,14 @@ overflow-x: hidden;
 
 .hero{
   min-height: 72vh;
-  background-image: url(../img/hero.png);
+  background-image: url(../img/hero.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
 }
 .herobread{
 min-height:30vh;
-background-image: url(../img/hero.png);
+background-image: url(../img/hero.svg);
 background-repeat: no-repeat;
 background-size: cover;
 }
