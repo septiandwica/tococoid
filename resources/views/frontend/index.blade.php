@@ -42,24 +42,81 @@
 </article>
 <article class="about py-5">
     <section class="container  py-5">
-        <div class="title text-center" data-aos="fade-up"
-data-aos-duration="2000">
-            <img src="{{ asset('frontend/src/img/logo.png')}}" width="80px" alt="">
-            <h1 >About Tococo</h1>
-            <p class="mb-5">Some facts about us</p>
-        </div>
+        
         <div class="row">
-            <div class="col-lg-5 text-center aboutsimple" data-aos="fade-right">
-                <img src="{{ $general->getImage() }}" alt="">
-            </div>
-            <div class="col-lg-7  text-center text-lg-start pt-5 pt-lg-0" data-aos="fade-left">
-                <p class="description mb-5">
-                    {{ $general->about_description }}
-                   
-                </p>
+            <div class="col-6" data-aos="fade-up"
+            data-aos-duration="2000">
+            <div class="text-center">
+                <img src="{{ asset('frontend/src/img/logo.png')}}" width="80px" alt="">
 
+            </div>
+                <h1>Unlock Coconut Potential. Today.</h1>
+                <p class="mb-5">{{ Str::limit($general->about_description, 118) }}</p>
                 <a href="{{ route('about')}}" class="btn-outln ">More Detail</a>
             </div>
+            <div class="col-6">
+                <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                    <ol class="carousel-indicators" style="list-style: none">
+                        <li 
+                            data-bs-target="#carouselId"
+                            data-bs-slide-to="0"
+                            class="active"
+                            aria-current="true"
+                            aria-label="First slide"
+                        ></li>
+                        <li
+                            data-bs-target="#carouselId"
+                            data-bs-slide-to="1"
+                            aria-label="Second slide"
+                        ></li>
+                        <li
+                            data-bs-target="#carouselId"
+                            data-bs-slide-to="2"
+                            aria-label="Third slide"
+                        ></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <div class=" text-center aboutsimple" data-aos="fade-right">
+                               <video src="https://drive.google.com/file/d/1Xoja-g2bGjLf17AJeeu3s8UcFtq9G50D/view?usp=drive_link"></video>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="text-center aboutsimple" data-aos="fade-right">
+                                <img src="{{ $general->getImage() }}" alt="">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="text-center aboutsimple" data-aos="fade-right">
+                                <img src="{{ $general->getImage() }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselId"
+                        data-bs-slide="prev"
+                    >
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselId"
+                        data-bs-slide="next"
+                    >
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="attack">
+
+                </div>
+                
+            </div>
+
         </div>
     </section>
 
