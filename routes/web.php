@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BlogApiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
@@ -18,6 +19,10 @@ Route::get('blog/{slug}', [FrontEndController::class, 'blog_detail'])->name('blo
 Route::get("contact", [FrontEndController::class,'contact'])->name('contact');
 
 
+Route::group(['middleware' => ['cors', 'cors.domain']], function () {
+    Route::get('/blogs', [BlogApiController::class, 'index']);
+    Route::get('/blogs/{slug}', [BlogApiController::class, 'show']);
+});
 
 Route::controller(AuthController::class)->group(    function () {
     
@@ -65,3 +70,4 @@ Route::group(['middleware' => ['auth', 'developer']], function () {
     Route::get('dashboard/users/delete/{id}', [UserController::class, 'delete_user'])->name('dashboard/users/delete');
 
 });
+

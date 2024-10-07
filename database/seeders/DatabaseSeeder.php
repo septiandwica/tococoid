@@ -59,11 +59,11 @@ class DatabaseSeeder extends Seeder
             <li class="p1">Provide products that support a healthy lifestyle for consumers by focusing on sustainability and social responsibility.</li>
             </ul>',
             'contact_email' => 'business@tococoindonesia.com',
-            'contact_phone' => '+1234567890',
+            'contact_phone' => '+6281392385176',
             'contact_ig' => 'tococoindonesia.id',
             'contact_linkedin' => 'linkedin_profile',
             'contact_tiktok' => 'tiktok_handle',
-            'contact_location' => '1234 Main St, Anytown, USA',
+            'contact_location' => 'Central Java, Indonesia',
         ]);
     }
 }

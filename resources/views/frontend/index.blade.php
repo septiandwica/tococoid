@@ -44,17 +44,16 @@
     <section class="container  py-5">
         
         <div class="row">
-            <div class="col-6" data-aos="fade-up"
+            <div class="col-12 col-md-6" data-aos="fade-up"
             data-aos-duration="2000">
-            <div class="text-center">
+            <div class="text-center mb-5 ">
                 <img src="{{ asset('frontend/src/img/logo.png')}}" width="80px" alt="">
-
             </div>
                 <h1>Unlock Coconut Potential. Today.</h1>
                 <p class="mb-5">{{ Str::limit($general->about_description, 118) }}</p>
-                <a href="{{ route('about')}}" class="btn-outln ">More Detail</a>
+                <a  href="{{ route('about')}}" class="btn-outln ">More Detail</a>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6 ">
                 <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
                     <ol class="carousel-indicators" style="list-style: none">
                         <li 
