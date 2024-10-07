@@ -32,7 +32,7 @@ return [
     // 'supports_credentials' => false,
 'paths' => ['api/*', 'sanctum/csrf-cookie'],
        'allowed_methods' => ['*'],
-       'allowed_origins' => ['http://127.0.0.1:8000'],
+       'allowed_origins' => ['https://comunity.tococoindonesia.com'],
        'allowed_origins_patterns' => [],
        'allowed_headers' => ['*'],
        'exposed_headers' => [],

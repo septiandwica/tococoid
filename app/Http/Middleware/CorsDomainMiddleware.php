@@ -15,12 +15,13 @@ class CorsDomainMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $allowedDomain = 'community.tococoindonesia.com';
+        // Mengambil domain yang diizinkan dari konfigurasi CORS
+        $allowedDomains = config('cors.allowed_origins');
 
-        // Cek apakah Origin sesuai dengan domain yang diizinkan
-        if ($request->headers->get('Origin') !== $allowedDomain) {
+        // Cek apakah Origin sesuai dengan salah satu domain yang diizinkan
+        if (!in_array($request->headers->get('Origin'), $allowedDomains)) {
             // Mengembalikan respons 404 jika domain tidak diizinkan
-            return response()->json(['error' => '404'], 404);
+            return response()->json(['error' => 'Unauthorized'], 404);
         }
 
         return $next($request);
