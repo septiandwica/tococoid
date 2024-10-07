@@ -19,7 +19,7 @@ Route::get('blog/{slug}', [FrontEndController::class, 'blog_detail'])->name('blo
 Route::get("contact", [FrontEndController::class,'contact'])->name('contact');
 
 
-Route::group(['middleware' => ['cors', 'cors.domain']], function () {
+Route::group(['middleware' => ['cors']], function () {
     Route::get('/blogs', [BlogApiController::class, 'index']);
     Route::get('/blogs/{slug}', [BlogApiController::class, 'show']);
 });
