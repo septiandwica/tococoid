@@ -60,28 +60,60 @@ class="herobread container-fluid d-flex align-items-center justify-content-cente
 
       <div class="title" data-aos="fade-right" data-aos-duration="1500">
         <h1>Experience Team</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, ducimus.</p>
+        <p>Meet our dedicated team of students working together to drive innovation and success.</p>
       </div>
-
+      
       <div class="row pt-5 pb-2">
-
         <div class="col-lg-6" data-aos="fade-down" data-aos-duration="1500">
-          <div class="member d-flex align-items-start"  >
-            <div class="teampic"><img src="./src/img/teams/team1.png" class="img-fluid" alt=""></div>
+          <div class="member d-flex align-items-start">
+            <div class="teampic"><img src="./src/img/teams/team1.png" class="img-fluid" alt="Alfito Yuro"></div>
             <div class="member-info">
               <h4>Alfito Yuro</h4>
               <span>Chief Executive Officer</span>
-              
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, ducimus.</p>
+              <p>Currently studying Management at PU, Alfito brings a fresh perspective to our team.</p>
               <div class="social">
-                <a href=""><i class="fab fa-instagram " aria-hidden="true"></i></a>
+                <a href=""><i class="fab fa-instagram" aria-hidden="true"></i></a>
                 <a href=""><i class="fab fa-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
           </div>
         </div>
-
       </div>
+      
+      <div class="row pt-5 pb-2">
+        <div class="col-lg-6" data-aos="fade-down" data-aos-duration="1500">
+          <div class="member d-flex align-items-start">
+            <div class="teampic"><img src="./src/img/teams/team1.png" class="img-fluid" alt="Mufti Aji Panuntun"></div>
+            <div class="member-info">
+              <h4>Mufti Aji Panuntun</h4>
+              <span>Chief Financial Officer</span>
+              <p>A student of Public Asset Management at STAN, Mufti focuses on financial strategies.</p>
+              <div class="social">
+                <a href=""><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href=""><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row pt-5 pb-2">
+        <div class="col-lg-6" data-aos="fade-down" data-aos-duration="1500">
+          <div class="member d-flex align-items-start">
+            <div class="teampic"><img src="./src/img/teams/team1.png" class="img-fluid" alt="Septian Dwi Cahyo"></div>
+            <div class="member-info">
+              <h4>Septian Dwi Cahyo</h4>
+              <span>Chief Technology Officer</span>
+              <p>Studying Information Systems at PU, Septian leads our tech initiatives.</p>
+              <div class="social">
+                <a href=""><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href=""><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
 
     </div>
   </section>
